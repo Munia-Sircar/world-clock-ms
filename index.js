@@ -28,6 +28,22 @@ function displayCurrentTime() {
 
   bermudaDate.innerHTML = currentBermudaDate;
   bermudaTime.innerHTML = currentBermudaTime;
+
+  // Darwin
+
+  let darwinTimeElement = document.querySelector("#darwin");
+  let darwinDate = darwinTimeElement.querySelector(".date");
+  let darwinTime = darwinTimeElement.querySelector(".time");
+
+  let currentDarwinDate = moment()
+    .tz("Australia/Darwin")
+    .format("MMMM Do YYYY");
+  let currentDarwinTime = moment()
+    .tz("Australia/Darwin")
+    .format("h:mm:ss [<small>]A[</small>]");
+
+  darwinDate.innerHTML = currentDarwinDate;
+  darwinTime.innerHTML = currentDarwinTime;
 }
 
 displayCurrentTime();
@@ -50,7 +66,9 @@ function showSelectedCity(event) {
   <div class="time">${cityTimeZone.format(
     "h:mm:ss"
   )}<small> ${cityTimeZone.format("A")}</small></div>
-  </div>`;
+  </div>
+  <a href="index.html">Home</a>
+  `;
 }
 
 let selectCity = document.querySelector("#choose-city");
