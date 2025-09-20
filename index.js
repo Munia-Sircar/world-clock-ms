@@ -35,6 +35,9 @@ setInterval(displayCurrentTime, 1000);
 
 function showSelectedCity(event) {
   let city = event.target.value;
+  if (city === "current") {
+    city = moment.tz.guess();
+  }
   let cityTimeZone = moment().tz(city);
   let cityName = city.split("/")[1];
 
